@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Linha do tempo documental do GT-Consensualidade e da proposta de CEMESC na Anatel, com atos e fontes verificáveis.">
+  <title>Linha do tempo V3 — GT-Consensualidade e CEMESC</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23071825'/%3E%3Cpath d='M17 17h30M17 32h22M17 47h30' stroke='%2359e1c6' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='45' cy='32' r='5' fill='%23f5b94c'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink:#0b2231; --ink-2:#17394a; --paper:#f3f7f6; --card:#ffffff; --muted:#587079;
+      --line:#c9d8d7; --teal:#087f77; --teal-2:#d6f2ec; --amber:#a95f00; --amber-2:#fff0d4;
+      --red:#9b3434; --red-2:#ffe5e2; --blue:#285f91; --blue-2:#e3eff9; --shadow:0 14px 42px rgba(7,31,45,.10);
+      --serif:Georgia, 'Times New Roman', serif; --sans:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    [data-theme="dark"] {
+      color-scheme:dark; --ink:#e8f2f1; --ink-2:#c6dcda; --paper:#071722; --card:#0d2431; --muted:#a7bec0;
+      --line:#284653; --teal:#62dec7; --teal-2:#113e3c; --amber:#ffc267; --amber-2:#4a3214;
+      --red:#ff9792; --red-2:#472526; --blue:#8cc7f5; --blue-2:#173951; --shadow:0 16px 46px rgba(0,0,0,.28);
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:radial-gradient(circle at 5% 0, color-mix(in srgb, var(--teal-2) 82%, transparent), transparent 28rem), var(--paper); color:var(--ink); font:16px/1.6 var(--sans); }
+    a { color:var(--teal); text-decoration-thickness:.08em; text-underline-offset:.16em; }
+    a:hover { text-decoration-thickness:.13em; }
+    button, input { font:inherit; }
+    button, a { -webkit-tap-highlight-color:transparent; }
+    :focus-visible { outline:3px solid var(--amber); outline-offset:3px; }
+    .skip { position:absolute; left:12px; top:-80px; z-index:99; padding:10px 14px; border-radius:10px; background:var(--card); color:var(--ink); }
+    .skip:focus { top:12px; }
+    .shell { width:min(1180px, calc(100% - 32px)); margin:0 auto; }
+    header { padding:28px 0 20px; border-bottom:1px solid var(--line); }
+    .topbar { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+    .eyebrow { margin:0; color:var(--teal); font-size:.76rem; font-weight:850; letter-spacing:.14em; text-transform:uppercase; }
+    .icon-button { display:inline-flex; align-items:center; gap:8px; min-height:42px; padding:8px 12px; border:1px solid var(--line); border-radius:12px; color:var(--ink); background:var(--card); cursor:pointer; }
+    .hero { display:grid; grid-template-columns:minmax(0, 1.3fr) minmax(280px, .7fr); gap:24px; align-items:end; padding:32px 0 22px; }
+    h1 { max-width:820px; margin:0; font:780 clamp(2.2rem, 5vw, 4.5rem)/.99 var(--serif); letter-spacing:-.045em; }
+    .dek { max-width:760px; margin:18px 0 0; color:var(--muted); font-size:1.05rem; }
+    .cutoff { padding:18px; border:1px solid var(--line); border-radius:18px; background:color-mix(in srgb, var(--card) 88%, transparent); box-shadow:var(--shadow); }
+    .cutoff strong, .cutoff span { display:block; }
+    .cutoff strong { font-size:.75rem; text-transform:uppercase; letter-spacing:.11em; color:var(--teal); }
+    .cutoff span { margin-top:5px; font-size:1.08rem; font-weight:760; }
+    .status-grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:14px; padding:0 0 28px; }
+    .status-card { padding:20px; border-radius:18px; border:1px solid var(--line); background:var(--card); box-shadow:var(--shadow); }
+    .status-card.pending { border-left:5px solid var(--amber); }
+    .status-card.review { border-left:5px solid var(--red); }
+    .status-card h2 { margin:4px 0 7px; font:750 1.3rem/1.18 var(--serif); }
+    .status-card p { margin:0; color:var(--muted); }
+    .pill { display:inline-flex; align-items:center; gap:7px; color:var(--amber); font-size:.74rem; font-weight:850; letter-spacing:.09em; text-transform:uppercase; }
+    .pill::before { content:''; width:8px; height:8px; border-radius:50%; background:currentColor; }
+    main { padding:28px 0 64px; }
+    section { scroll-margin-top:20px; }
+    .section-head { display:flex; align-items:end; justify-content:space-between; gap:16px; margin:42px 0 16px; }
+    .section-head h2 { margin:0; font:760 clamp(1.7rem, 3vw, 2.35rem)/1.05 var(--serif); letter-spacing:-.025em; }
+    .section-head p { max-width:600px; margin:4px 0 0; color:var(--muted); }
+    .process-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
+    .process { min-height:210px; padding:18px; border:1px solid var(--line); border-radius:16px; background:var(--card); }
+    .process .n { display:inline-block; margin-bottom:18px; padding:5px 8px; border-radius:8px; background:var(--teal-2); color:var(--teal); font-size:.72rem; font-weight:850; }
+    .process h3 { margin:0 0 8px; font:730 1.03rem/1.25 var(--serif); }
+    .process p { margin:0 0 12px; color:var(--muted); font-size:.88rem; }
+    .process a { font-size:.82rem; font-weight:760; }
+    .controls { position:sticky; top:0; z-index:20; margin:30px 0 20px; padding:14px; border:1px solid var(--line); border-radius:18px; background:color-mix(in srgb, var(--paper) 90%, transparent); box-shadow:0 10px 30px rgba(7,31,45,.10); backdrop-filter:blur(14px); }
+    .control-row { display:flex; flex-wrap:wrap; gap:9px; align-items:center; }
+    .search { flex:1 1 290px; min-height:44px; padding:10px 13px; border:1px solid var(--line); border-radius:12px; background:var(--card); color:var(--ink); }
+    .filter, .action { min-height:40px; padding:7px 11px; border:1px solid var(--line); border-radius:999px; background:var(--card); color:var(--ink); cursor:pointer; font-size:.84rem; font-weight:700; }
+    .filter[aria-pressed="true"] { border-color:var(--teal); color:var(--paper); background:var(--teal); }
+    .control-meta { display:flex; justify-content:space-between; gap:12px; margin-top:10px; color:var(--muted); font-size:.78rem; }
+    .timeline { position:relative; margin-top:14px; }
+    .phase { display:grid; grid-template-columns:240px minmax(0,1fr); gap:34px; padding:42px 0 24px; border-top:1px solid var(--line); }
+    .phase:first-child { border-top:0; padding-top:20px; }
+    .phase[hidden] { display:none; }
+    .phase-label { position:sticky; top:158px; align-self:start; }
+    .phase-number { color:var(--teal); font-size:.74rem; font-weight:850; letter-spacing:.15em; text-transform:uppercase; }
+    .phase h2 { margin:8px 0; font:760 1.55rem/1.12 var(--serif); letter-spacing:-.025em; }
+    .phase-label p { margin:0; color:var(--muted); font-size:.9rem; }
+    .phase-range { display:inline-block; margin-top:15px; padding:5px 10px; border-radius:999px; background:var(--teal-2); color:var(--teal); font-size:.75rem; font-weight:770; }
+    .phase-events { min-width:0; }
+    .event { display:grid; grid-template-columns:150px 28px minmax(0,1fr); gap:0 16px; }
+    .event[hidden] { display:none; }
+    .date { padding:20px 0; color:var(--muted); font-size:.84rem; font-weight:750; text-align:right; }
+    .rail { position:relative; }
+    .rail::before { content:''; position:absolute; left:13px; top:0; bottom:0; width:2px; background:var(--line); }
+    .dot { position:absolute; left:6px; top:27px; width:16px; height:16px; border:4px solid var(--paper); border-radius:50%; background:var(--teal); box-shadow:0 0 0 1px var(--teal); }
+    .event[data-status="alert"] .dot { background:var(--red); box-shadow:0 0 0 1px var(--red); }
+    .event[data-status="pending"] .dot { background:var(--amber); box-shadow:0 0 0 1px var(--amber); }
+    .event-card { margin:8px 0; border:1px solid var(--line); border-radius:16px; background:var(--card); overflow:hidden; box-shadow:0 7px 22px rgba(7,31,45,.06); }
+    .event-card summary { list-style:none; display:grid; grid-template-columns:minmax(0,1fr) auto; gap:12px; padding:18px; cursor:pointer; }
+    .event-card summary::-webkit-details-marker { display:none; }
+    .event-card summary::after { content:'＋'; align-self:center; color:var(--teal); font-size:1.2rem; font-weight:800; }
+    .event-card[open] summary::after { content:'−'; }
+    .event-card h3 { margin:3px 0 6px; font:730 1.15rem/1.22 var(--serif); }
+    .event-card h3 a { color:inherit; }
+    .effect { margin:0; color:var(--muted); font-size:.92rem; }
+    .tag-row { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
+    .tag { display:inline-flex; padding:3px 7px; border-radius:999px; background:var(--blue-2); color:var(--blue); font-size:.7rem; font-weight:780; }
+    .tag.status { background:var(--amber-2); color:var(--amber); }
+    .detail { padding:0 18px 18px; border-top:1px solid var(--line); font-size:.9rem; }
+    .detail p { margin:14px 0 0; }
+    .facts { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-top:14px; }
+    .fact { padding:10px; border-radius:10px; background:var(--paper); }
+    .fact b, .fact span { display:block; }
+    .fact b { font-size:.69rem; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; }
+    .fact span { margin-top:3px; font-size:.86rem; }
+    .sources { display:flex; flex-wrap:wrap; gap:8px; margin-top:15px; }
+    .source { display:inline-flex; align-items:center; min-height:36px; padding:7px 10px; border:1px solid var(--line); border-radius:10px; background:var(--card); font-size:.78rem; font-weight:740; text-decoration:none; }
+    .empty { display:none; padding:28px; border:1px dashed var(--line); border-radius:16px; color:var(--muted); text-align:center; }
+    .next-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+    .next { padding:18px; border:1px solid var(--line); border-radius:16px; background:var(--card); }
+    .next strong { display:block; margin-bottom:6px; font-family:var(--serif); }
+    .next p { margin:0; color:var(--muted); font-size:.88rem; }
+    .method { margin-top:36px; padding:22px; border:1px solid var(--line); border-radius:18px; background:var(--card); }
+    .method h2 { margin:0 0 8px; font:740 1.35rem var(--serif); }
+    .method p { margin:8px 0 0; color:var(--muted); font-size:.9rem; }
+    footer { padding:26px 0 36px; border-top:1px solid var(--line); color:var(--muted); font-size:.8rem; }
+    @media (max-width:920px) { .hero { grid-template-columns:1fr; } .process-grid { grid-template-columns:repeat(2,1fr); } .next-grid { grid-template-columns:1fr; } .phase { grid-template-columns:200px minmax(0,1fr); gap:22px; } }
+    @media (max-width:680px) {
+      .shell { width:min(100% - 22px, 1180px); } header { padding-top:18px; } .hero { padding-top:24px; }
+      .status-grid, .process-grid { grid-template-columns:1fr; }
+      .phase { grid-template-columns:1fr; gap:18px; padding:32px 0 18px; }
+      .phase-label { position:static; }
+      .phase-label p { max-width:620px; }
+      .event { grid-template-columns:23px minmax(0,1fr); gap:0 10px; }
+      .date { grid-column:2; padding:14px 0 0; text-align:left; }
+      .rail { grid-column:1; grid-row:1 / span 2; } .dot { left:3px; top:21px; }
+      .rail::before { left:10px; } .event-card { grid-column:2; }
+      .facts { grid-template-columns:1fr; } .controls { border-radius:14px; }
+      .control-meta { flex-direction:column; gap:2px; }
+    }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *, *::before, *::after { transition:none !important; } }
+    @media print {
+      :root { --paper:#fff; --card:#fff; --ink:#000; --ink-2:#111; --muted:#444; --line:#bbb; }
+      body { background:#fff; font-size:11pt; } .shell { width:100%; } header { padding-top:0; }
+      .topbar, .controls, .skip, .next-grid { display:none !important; }
+      .hero { grid-template-columns:1fr; } .status-grid, .process-grid { grid-template-columns:repeat(2,1fr); }
+      .event-card { box-shadow:none; break-inside:avoid; } .detail { display:block !important; }
+      a { color:#000; text-decoration:none; } a[href^="http"]::after { content:' [' attr(href) ']'; font-size:7.5pt; overflow-wrap:anywhere; }
+      .phase { grid-template-columns:175px minmax(0,1fr); gap:20px; padding:22px 0 12px; break-inside:auto; }
+      .phase-label { position:static; break-inside:avoid; } .phase-number, .phase-range { color:#000; }
+      .phase-range { border:1px solid #aaa; background:#fff; } .method { break-inside:avoid; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#linha">Ir para a linha do tempo</a>
+  <header>
+    <div class="shell">
+      <div class="topbar">
+        <p class="eyebrow">Dossiê documental · Anatel</p>
+        <button class="icon-button" id="themeButton" type="button" aria-pressed="false" aria-label="Alternar tema">◐ <span>Tema</span></button>
+      </div>
+      <div class="hero">
+        <div>
+          <h1>GT-Consensualidade e CEMESC</h1>
+          <p class="dek">Linha do tempo reconstruída a partir dos atos, processos e comunicações oficiais. A leitura separa a criação efetiva do Grupo de Trabalho da proposta — ainda não instituída na data de corte — de um Centro de Mediação e Soluções Consensuais.</p>
+        </div>
+        <aside class="cutoff" aria-label="Data de corte da pesquisa">
+          <strong>Estado verificado até</strong>
+          <span>21 de setembro de 2026</span>
+          <small>32 marcos · 4 processos relacionados</small>
+        </aside>
+      </div>
+      <div class="status-grid" aria-label="Situação atual">
+        <article class="status-card pending">
+          <span class="pill">Proposta pendente</span>
+          <h2>O CEMESC não havia sido instituído</h2>
+          <p>O processo de criação seguia em instrução, com participação social, análise de impacto e controle jurídico.</p>
+        </article>
+        <article class="status-card review">
+          <span class="pill">Controle em curso</span>
+          <h2>Parte do Regimento do GT estava suspensa</h2>
+          <p>A <a href="https://sei.anatel.gov.br/sei/modulos/pesquisa/md_pesq_documento_consulta_externa.php?md_pesq_parametros=8-74Kn1tDR89f1Q7RjX8EYU46IzCFD26Q9Xx5QNDbqZ_wmYpynP1pj4DeI92a9rWU23tlU3MEt4SSC6vx7w_VP_XwpXWgF9D8JDyPdtCeaDGbgGJUo38qrAY99Y6kOMJ" target="_blank" rel="noopener noreferrer">Portaria nº 3.218/2026</a> suspendeu dispositivos até decisão do Conselho Diretor ou revogação expressa.</p>
+        </article>
+      </div>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section aria-labelledby="processos-title">
+      <div class="section-head">
+        <div><h2 id="processos-title">Quatro trilhas processuais</h2><p>Os documentos não pertencem a um único processo. A separação evita atribuir a uma peça efeitos produzidos em outra trilha.</p></div>
+      </div>
+      <div class="process-grid">
+        <article class="process"><span class="n">53500.097798/2025-96</span><h3>Criação e composição do GT</h3><p>Proposta, aprovação, formalização, presidência e membros do Grupo de Trabalho.</p><a href="https://sei.anatel.gov.br/sei/modulos/pesquisa/md_pesq_processo_exibir.php?md_pesq_parametros=92AHliMZAlcgWWxm2w2qy-GDVz335h7FYd_mrGCDn9UEi2XStDTUZKOJ_damneHH9mwnSMIjw0l3j23hD04TsqQzhONaLaW6MnLu1TfifsB03Tq7r13C7KPfV3vAcYmt" target="_blank" rel="noopener noreferrer">Abrir processo ↗</a></article>
+        <article class="process"><span class="n">53500.011386/2024-96</span><h3>Agenda Regulatória</h3><p>Inclusão e atualização do item dedicado à criação do CEMESC na Agenda 2025–2026.</p><a href="https://www.gov.br/anatel/pt-br/regulado/agenda-regulatoria/agenda-regulatoria-2025-2026-item-34" target="_blank" rel="noopener noreferrer">Abrir item 34 ↗</a></article>
+        <article class="process"><span class="n">53500.103469/2025-91</span><h3>Proposta de CEMESC</h3><p>Minuta, instrução técnica, diligências, consulta jurídica e participação social.</p><a href="https://sei.anatel.gov.br/sei/modulos/pesquisa/md_pesq_processo_exibir.php?md_pesq_parametros=92AHliMZAlcgWWxm2w2qy-GDVz335h7FYd_mrGCDn9UEi2XStDTUZKOJ_damneHH9mwnSMIjw0l3j23hD04TsrmZANSqMW1toaOAfBgTExxd0VnTgvkK5UxOfhxAdq1u" target="_blank" rel="noopener noreferrer">Abrir processo ↗</a></article>
+        <article class="process"><span class="n">53500.047079/2026-13</span><h3>Regimento do GT</h3><p>Edição do Regimento, suspensão parcial e revisão de validade, vigência e efeitos.</p><a href="https://sei.anatel.gov.br/sei/modulos/pesquisa/md_pesq_processo_exibir.php?md_pesq_parametros=92AHliMZAlcgWWxm2w2qy-GDVz335h7FYd_mrGCDn9UEi2XStDTUZKOJ_damneHH9mwnSMIjw0l3j23hD04Tsv_ZsVpqjnkhLrBsws1NEkhippq2zLqVaJqd4LTUT1f4" target="_blank" rel="noopener noreferrer">Abrir processo ↗</a></article>
+      </div>
+    </section>
+
+    <section id="linha" aria-labelledby="linha-title">
+      <div class="section-head"><div><h2 id="linha-title">Linha do tempo verificável</h2><p>Abra cada marco para ver efeito, processo, ator e fontes oficiais acessíveis.</p></div></div>
+      <div class="controls" aria-label="Controles da linha do tempo">
+        <div class="control-row">
+          <input class="search" id="search" type="search" placeholder="Buscar ato, processo, SEI, pessoa ou tema…" aria-label="Buscar na linha do tempo">
+          <button class="filter" type="button" data-filter="GT" aria-pressed="false">GT</button>
+          <button class="filter" type="button" data-filter="Agenda" aria-pressed="false">Agenda</button>
+          <button class="filter" type="button" data-filter="CEMESC" aria-pressed="false">CEMESC</button>
+          <button class="filter" type="button" data-filter="Regimento" aria-pressed="false">Regimento</button>
+        </div>
+        <div class="control-row" style="margin-top:9px">
+          <button class="filter" type="button" data-kind="decisão" aria-pressed="false">Decisão</button>
+          <button class="filter" type="button" data-kind="norma" aria-pressed="false">Norma</button>
+          <button class="filter" type="button" data-kind="instrução" aria-pressed="false">Instrução</button>
+          <button class="filter" type="button" data-kind="participação" aria-pressed="false">Participação</button>
+          <button class="filter" type="button" data-kind="jurídico" aria-pressed="false">Jurídico</button>
+          <button class="filter" type="button" data-kind="comunicação" aria-pressed="false">Comunicação</button>
+          <button class="action" id="clear" type="button">Limpar</button>
+          <button class="action" id="toggleAll" type="button">Expandir tudo</button>
+          <button class="action" id="print" type="button">Imprimir</button>
+        </div>
+        <div class="control-meta"><span id="count" aria-live="polite"></span><span>Filtros são combinados por tema + natureza.</span></div>
+      </div>
+      <div id="events" class="timeline"></div>
+      <p id="empty" class="empty">Nenhum marco corresponde aos filtros atuais.</p>
+    </section>
+
+    <section aria-labelledby="acompanhar-title">
+      <div class="section-head"><div><h2 id="acompanhar-title">O que acompanhar depois da data de corte</h2><p>A cronologia só muda com nova evidência oficial.</p></div></div>
+      <div class="next-grid">
+        <article class="next"><strong>Deliberação sobre o Regimento</strong><p>Decisão do Conselho Diretor, no processo 53500.047079/2026-13, sobre validade, vigência e efeitos dos dispositivos suspensos.</p></article>
+        <article class="next"><strong>Desfecho da proposta de CEMESC</strong><p>Relatório de participação, AIR, manifestação jurídica prévia sobre eventual proposta normativa e decisão formal competente.</p></article>
+        <article class="next"><strong>Vigência do novo Regimento da Anatel</strong><p>A <a href="https://informacoes.anatel.gov.br/legislacao/component/content/article/175-resolucoes/2026/2170-resolucao-anatel-791" target="_blank" rel="noopener noreferrer">Resolução nº 791/2026</a> foi publicada em 4 de setembro com vacatio de 30 dias; na data de corte ainda não estava em vigor.</p></article>
+      </div>
+    </section>
+
+    <section class="method" aria-labelledby="metodo-title">
+      <h2 id="metodo-title">Método e limites</h2>
+      <p>A página confronta atos oficiais, peças processuais preservadas e comunicações institucionais. Uma notícia não foi tratada como substituta do ato formal; um parecer jurídico não foi tratado como decisão anulatória; e ausência no acervo público foi descrita como “não localizada”, não como inexistência.</p>
+      <p>“Texto integral” conduz à peça exata; “processo público” ou “ficha do item 34” identifica uma fonte contextual e não é apresentado como substituto do documento. Quando a consulta pública do SEI apenas registra uma peça sem liberar sua íntegra, essa limitação é indicada expressamente. Estado verificado em 21/09/2026.</p>
+    </section>
+  </main>
+  <footer><div class="shell">Linha do tempo V3 · GT-Consensualidade e proposta de CEMESC · Fontes primárias vinculadas em cada marco.</div></footer>
+  <noscript><div class="shell" style="padding:20px;border:2px solid #9b3434">Ative JavaScript para visualizar e filtrar os 32 marcos. O resumo de situação e o mapa de processos permanecem disponíveis acima.</div></noscript>
+
+  <script>
+    const OFFICIAL = {
+      docs:'https://www.gov.br/anatel/pt-br/composicao/grupos-de-trabalho/gt-consensualidade/documentos',
+      created:'https://www.gov.br/anatel/pt-br/assuntos/noticias/aprovada-a-criacao-do-grupo-de-trabalho-de-consensualidade',
+      process097:'https://sei.anatel.gov.br/sei/modulos/pesquisa/md_pesq_processo_exibir.php?md_pesq_parametros=92AHliMZAlcgWWxm2w2qy-GDVz335h7FYd_mrGCDn9UEi2XStDTUZKOJ_damneHH9mwnSMIjw0l3j23hD04TsqQzhONaLaW6MnLu1TfifsB03Tq7r13C7KPfV3vAcYmt',
+      macd858:'https://sei.anatel.gov.br/sei/modulos/pesquisa/md_pesq_documento_consulta_externa.php?md_pesq_parametros=8-74Kn1tDR89f1Q7RjX8EYU46IzCFD26Q9Xx5QNDbqaGouJ3sgc4J0rTyd5qR4cDRWylcBTyhvmy5bPsPtYvviDZwC4zSXY188xiBu5iU0pvOG-zUbzTNBi7aeSgmfrr',
+      oficio16:'https://sei.anatel.gov.br/sei/modulos/pesquisa/md_pesq_documento_consulta_externa.php?md_pesq_parametros=8-74Kn1tDR89f1Q7RjX8EYU46IzCFD26Q9Xx5QNDbqYFfhWBJHgX39GBamG5QIB6HmXVqxGL-PB2XfBl6ioQbAhuPxM4swQOrpBUU21rc8sLXlHg8-9-rOYNlVlrHuFd',
+      voto116:'https://sei.anatel.gov.br/sei/modulos/pesquisa/md_pesq_documento_consulta_externa.php?md_pesq_parametros=8-74Kn1tDR89f1Q7RjX8EYU46IzCFD26Q9Xx5QNDbqYg-uudBmoV793VC_Q1gAEhvzRQzKnwzouMyPxeBUS8JTnhlv7O1l7ZbP_JGa93TaQo4WZX-gZHsSopBIUgu8eo',
+      despacho14831137:'https://sei.anatel.gov.br/sei/modulos/pesquisa/md_pesq_documento_consulta_externa.php?md_pesq_parametros=8-74Kn1tDR89f1Q7RjX8EYU46IzCFD26Q9Xx5QNDbqY4IVyUDyC4EXGIkw80k4iG9VIGqa_QR4Q_ZYz94mLXZ3TAF9yWrMNOkKrUJrROUUHasqJgjj6tqA1wEFRtRFsu',
+      p3085:'https://sei.anatel.gov.br/sei/modulos/pesquisa/md_pesq_documento_consulta_externa.php?md_pesq_parametros=8-74Kn1tDR89f1Q7RjX8EYU46IzCFD26Q9Xx5QNDbqZLAwXxigBZWvFFJzVpQRVfqIyzjTogeG9Ux9HJZwAoaux8nMMaEywJfppEOoC-8PkCLNcGQyOQl9q6jS-I5lcW',
+      pessoal1266:'https://sei.anatel.gov.br/sei/modulos/pesquisa/md_pesq_documento_consulta_externa.php?md_pesq_parametros=8-74Kn1tDR89f1Q7RjX8EYU46IzCFD26Q9Xx5QNDbqZHmKAZOyIoRE2fuYh11EUEP3RcqRph8s5-UgINym9IUcbE2dsR_6jmBkyv_P7grlrRvqe4bRRBbSsMXWOr2PpO',
+      p3101:'https://sei.anatel.gov.br/sei/modulos/pesquisa/md_pesq_documento_consulta_externa.php?md_pesq_parametros=8-74Kn1tDR89f1Q7RjX8EYU46IzCFD26Q9Xx5QNDbqaaE9FpX7L-F616bGLlG1ZMEZQqTqswbUf8sGk2P1S2R5fkZRqC4vMUQ5c0AftGQYXZcwUlT4Xtxjk2kFGUQhob',
+      item34:'https://www.gov.br/anatel/pt-br/regulado/agenda-regulatoria/agenda-regulatoria-2025-2026-item-34',
+      process103:'https://sei.anatel.gov.br/sei/modulos/pesquisa/md_pesq_processo_exibir.php?md_pesq_parametros=92AHliMZAlcgWWxm2w2qy-GDVz335h7FYd_mrGCDn9UEi2XStDTUZKOJ_damneHH9mwnSMIjw0l3j23hD04TsrmZANSqMW1toaOAfBgTExxd0VnTgvkK5UxOfhxAdq1u',
+      tap:'https://sei.anatel.gov.br/sei/modulos/pesquisa/md_pesq_documento_consulta_externa.php?md_pesq_parametros=8-74Kn1tDR89f1Q7RjX8EYU46IzCFD26Q9Xx5QNDbqYALSSmXJKIybCbnpmbkpMx67nrX0rIQWGdNuibiEyLBzH_-SpgXbvFi86G3U9XjvJKJ9iXPvGVpyXC-GV_cVso',
+      consulta29:'https://sei.anatel.gov.br/sei/modulos/pesquisa/md_pesq_documento_consulta_externa.php?md_pesq_parametros=8-74Kn1tDR89f1Q7RjX8EYU46IzCFD26Q9Xx5QNDbqY87Ph_aF5EspfPRWVqvJ1pFZdfm_HbgqA5auY-zwIzP_Z7qhRCYhYAyMFp2a2VVbBd3KHUrM1sDrYI7pszb4Kl',
+      distribuicao15109399:'https://sei.anatel.gov.br/sei/modulos/pesquisa/md_pesq_documento_consulta_externa.php?md_pesq_parametros=8-74Kn1tDR89f1Q7RjX8EYU46IzCFD26Q9Xx5QNDbqaYoy3KsyyU5j_xOCtPtvrnLVcvYh9SSK-0rQaJNK0HeG_XXVHtBBbfmDGtN_4_4dY0Bw_1WuM9NPTp9DK_2cqM',
+      analise76:'https://sei.anatel.gov.br/sei/modulos/pesquisa/md_pesq_documento_consulta_externa.php?md_pesq_parametros=8-74Kn1tDR89f1Q7RjX8EYU46IzCFD26Q9Xx5QNDbqYbI82yyEDsDkB7DzBEcIg03cdzZvOoP5qAlB5C2FNwgGhYe37SIW1dRbTwJW5EOAUnLeKUOeIYa9vzbBiaFFYF',
+      questionario15982195:'https://sei.anatel.gov.br/sei/modulos/pesquisa/md_pesq_documento_consulta_externa.php?md_pesq_parametros=8-74Kn1tDR89f1Q7RjX8EYU46IzCFD26Q9Xx5QNDbqbetWWIr0gM5f4zLhOk4MgdUJSGX2rskhaJL6K6fTtWSwrmeclEYPIZloHGEogfXX22T-j10Gk5th_WK910Svzl',
+      oficio204:'https://sei.anatel.gov.br/sei/modulos/pesquisa/md_pesq_documento_consulta_externa.php?md_pesq_parametros=8-74Kn1tDR89f1Q7RjX8EYU46IzCFD26Q9Xx5QNDbqZUKV2bwd3xlD1axS2Pdzg4zKlbbr81yEsxYa_SpEjETcGEwaCLOlcSf6o4jzkuF-kk0hvinfmLOZ2KSEKGx-nC',
+      ts7sei:'https://sei.anatel.gov.br/sei/modulos/pesquisa/md_pesq_documento_consulta_externa.php?md_pesq_parametros=8-74Kn1tDR89f1Q7RjX8EYU46IzCFD26Q9Xx5QNDbqY2J7bPq74nE7enIeje22ap0TZnt8kW_OksWADOhB7_c-WOcKe3HTuR8u3VEb3X86JtlcM98CrwiVau6K_U33mi',
+      oficio208:'https://sei.anatel.gov.br/sei/modulos/pesquisa/md_pesq_documento_consulta_externa.php?md_pesq_parametros=8-74Kn1tDR89f1Q7RjX8EYU46IzCFD26Q9Xx5QNDbqYo_PbDdgNTtZVL0oUs2VWAWrPkrJGqBX3xo9XvXv5SbAFXStSsZvgBzdcyA45ax8zKe5EbUdBOLIecFdqo6bEa',
+      parecer308:'https://sei.anatel.gov.br/sei/modulos/pesquisa/md_pesq_documento_consulta_externa.php?md_pesq_parametros=8-74Kn1tDR89f1Q7RjX8EYU46IzCFD26Q9Xx5QNDbqahJ5ToWC9HQ_IlsIWK2gD69M_BpafDjaZmHDi8bw0m-8vCwpYduxb1QK_9u5TZaytryOODfxtFev86AFp2S13Y',
+      decisao22:'https://sei.anatel.gov.br/sei/modulos/pesquisa/md_pesq_documento_consulta_externa.php?md_pesq_parametros=8-74Kn1tDR89f1Q7RjX8EYU46IzCFD26Q9Xx5QNDbqYtjINNl6FvCFnq-FY2VEp4T1kQSeTDe7spANLftyk_c_xeh8aW9ZR1zJ2uxqQElvoNuCawx-HyFbMC0X_11aUW',
+      oficio236:'https://sei.anatel.gov.br/sei/modulos/pesquisa/md_pesq_documento_consulta_externa.php?md_pesq_parametros=8-74Kn1tDR89f1Q7RjX8EYU46IzCFD26Q9Xx5QNDbqaVYTgVY81BYr-NBzG0PgEohcdmtSJnq4dVYHlYU3dIIeMB6Cjy6_KD0AzYmmymG_Byt_fUAQqIl2ra8MX2qBPE',
+      carta16296749:'https://sei.anatel.gov.br/sei/modulos/pesquisa/md_pesq_documento_consulta_externa.php?md_pesq_parametros=8-74Kn1tDR89f1Q7RjX8EYU46IzCFD26Q9Xx5QNDbqb9vGMj9PBrBXaWpONRvhp0GmKUmHgCB7P06kEKvo06B3p7ReLdQBnmGYi910N8SWVmUESgtj_Ue6alLBq8Fgj8',
+      ri523:'https://informacoes.anatel.gov.br/legislacao/resolucoes-internas/2125-resolucao-interna-523',
+      ri537:'https://informacoes.anatel.gov.br/legislacao/component/content/article/149-resolucoes-internas/2130-resolucao-interna-537',
+      p3165:'https://sei.anatel.gov.br/sei/modulos/pesquisa/md_pesq_documento_consulta_externa.php?md_pesq_parametros=8-74Kn1tDR89f1Q7RjX8EYU46IzCFD26Q9Xx5QNDbqYNrxeF3VvoiOv8NSnJvYs5Dev6zawMD7ovqgBlHPIQqXx4RLLg5brJsQhPYARJUH7t4XKnPx5HkLDUkLsyxW4Z',
+      p3173:'https://sei.anatel.gov.br/sei/publicacoes/controlador_publicacoes.php?acao=publicacao_visualizar&id_documento=17643555&id_orgao_publicacao=0',
+      p3218:'https://sei.anatel.gov.br/sei/modulos/pesquisa/md_pesq_documento_consulta_externa.php?md_pesq_parametros=8-74Kn1tDR89f1Q7RjX8EYU46IzCFD26Q9Xx5QNDbqZ_wmYpynP1pj4DeI92a9rWU23tlU3MEt4SSC6vx7w_VP_XwpXWgF9D8JDyPdtCeaDGbgGJUo38qrAY99Y6kOMJ',
+      steps:'https://www.gov.br/anatel/pt-br/assuntos/noticias/processo-sobre-proposta-de-criacao-do-cemesc-tera-novas-etapas-de-instrucao',
+      ts7:'https://apps.anatel.gov.br/ParticipaAnatel/VisualizarTextoConsulta.aspx?ConsultaId=20418&TelaDeOrigem=2',
+      opinion:'https://www.gov.br/anatel/pt-br/assuntos/noticias/anatel-disponibiliza-documento-na-tomada-de-subsidios-sobre-centro-de-mediacao-e-solucoes-consensuais',
+      ri791:'https://informacoes.anatel.gov.br/legislacao/component/content/article/175-resolucoes/2026/2170-resolucao-anatel-791',
+      process047:'https://sei.anatel.gov.br/sei/modulos/pesquisa/md_pesq_processo_exibir.php?md_pesq_parametros=92AHliMZAlcgWWxm2w2qy-GDVz335h7FYd_mrGCDn9UEi2XStDTUZKOJ_damneHH9mwnSMIjw0l3j23hD04Tsv_ZsVpqjnkhLrBsws1NEkhippq2zLqVaJqd4LTUT1f4'
+    };
+    const ext = (url,label) => `<a href="${url}" target="_blank" rel="noopener noreferrer">${label}</a>`;
+    const official = (url,label='Texto integral · fonte oficial') => ({label,url});
+    const proc = {
+      gt:'53500.097798/2025-96', agenda:'53500.011386/2024-96', cemesc:'53500.103469/2025-91', reg:'53500.047079/2026-13'
+    };
+    const phases = {
+      1:{number:'Fase 1',title:'Criação do GT e formulação inicial',range:'nov. 2025 — jan. 2026',description:'O grupo nasce como estrutura temporária de estudo; o CEMESC aparece como possibilidade a ser avaliada em processo próprio.'},
+      2:{number:'Fase 2',title:'Agenda e expansão procedimental',range:'fev. — jun. 2026',description:'O CEMESC entra na Agenda Regulatória e o Regimento do GT passa a disciplinar mecanismos de resolução de casos.'},
+      3:{number:'Fase 3',title:'Reabertura da instrução e controle jurídico',range:'jul. — ago. 2026',description:'A relatoria amplia a instrução, consulta a Procuradoria e submete a proposta à participação social.'},
+      4:{number:'Fase 4',title:'Participação social e estado documental',range:'set. 2026',description:'A Tomada de Subsídios encerra o recebimento e o acompanhamento passa a aguardar eventual reabertura do prazo.'}
+    };
+    const events = [
+      {id:1,phase:1,date:'14 nov. 2025',iso:'2025-11-14',title:`${ext(OFFICIAL.macd858,'MACD nº 858/2025')} propõe o GT`,effect:'Edson Holanda propõe criar um grupo voltado à consensualidade e apresenta minuta inicial.',actor:'Conselheiro Edson Holanda',processes:[proc.gt],objects:['GT'],kind:'instrução',status:'proposta',detail:`A MACD inaugura a trilha de criação. O documento apresenta justificativa, objetivos e uma minuta. A proposta ainda dependia de deliberação do Conselho Diretor.`,sources:[official(OFFICIAL.macd858)]},
+      {id:2,phase:1,date:'26 nov. 2025',iso:'2025-11-26',title:`${ext(OFFICIAL.oficio16,'Ofício nº 16/2025/EH-Anatel')} registra aperfeiçoamentos`,effect:'A proposta é ajustada após interlocuções preliminares com os demais membros do Conselho Diretor.',actor:'Gabinete de Edson Holanda',processes:[proc.gt],objects:['GT'],kind:'instrução',status:'preparatório',detail:`O ${ext(OFFICIAL.voto116,'Voto nº 116/2025/PR')} identifica o Ofício nº 16/2025/EH-Anatel, SEI 14812986, como veículo dos aperfeiçoamentos. A consulta pública do processo confirma a data de 26/11/2025 e disponibiliza a íntegra da peça.`,sources:[official(OFFICIAL.oficio16),official(OFFICIAL.voto116,'Voto que referencia o ofício · texto integral')]},
+      {id:3,phase:1,date:'28 nov. 2025',iso:'2025-11-28',title:`${ext(OFFICIAL.voto116,'Voto nº 116/2025/PR')} e Circuito Deliberativo nº 296 aprovam o GT`,effect:'A deliberação colegiada autoriza a criação do Grupo de Trabalho.',actor:'Conselho Diretor · relator Carlos Baigorri',processes:[proc.gt],objects:['GT'],kind:'decisão',status:'aprovado',detail:`O Voto distingue a criação do GT da proposta de CEMESC: os detalhes do Centro deveriam ser tratados em processo próprio e a minuta inicial não vinculava a instrução futura.`,sources:[official(OFFICIAL.voto116),official(OFFICIAL.created,'Notícia institucional · contexto')]},
+      {id:4,phase:1,date:'28 nov. 2025',iso:'2025-11-28',title:`${ext(OFFICIAL.p3085,'Portaria nº 3.085/2025')} formaliza o GT`,effect:'Ato do Presidente da Anatel executa a decisão colegiada e cria formalmente o Grupo.',actor:'Presidente da Anatel · Carlos Baigorri',processes:[proc.gt],objects:['GT'],kind:'norma',status:'vigente',detail:`A portaria é o ato formal de criação do GT. Ela não cria o CEMESC e não equivale a uma decisão sobre a futura estrutura do Centro.`,sources:[official(OFFICIAL.p3085)]},
+      {id:5,phase:1,date:'28 nov. 2025',iso:'2025-11-28',title:`${ext(OFFICIAL.pessoal1266,'Portaria de Pessoal nº 1.266/2025')} designa a presidência`,effect:'Edson Holanda passa a presidir o Grupo de Trabalho.',actor:'Presidência da Anatel',processes:[proc.gt],objects:['GT'],kind:'norma',status:'designação',detail:`O fato de o presidente do GT ser Conselheiro da Anatel confere posição institucional relevante, mas não transfere ao Grupo ou ao seu presidente as competências reservadas ao Conselho Diretor ou à autoridade normativa competente.`,sources:[official(OFFICIAL.pessoal1266)]},
+      {id:6,phase:1,date:'28 nov. 2025',iso:'2025-11-28',title:`${ext(OFFICIAL.despacho14831137,'Despacho SEI nº 14831137')} determina instrução autônoma do CEMESC`,effect:'A proposta do Centro é separada da criação do GT e encaminhada para processo próprio.',actor:'Presidência da Anatel',processes:[proc.cemesc],objects:['CEMESC'],kind:'instrução',status:'autuação',detail:`O despacho orienta a instrução do CEMESC com participação das áreas técnicas. Essa separação é decisiva: o GT já existia; o Centro ainda seria analisado.`,sources:[official(OFFICIAL.despacho14831137)]},
+      {id:7,phase:1,date:'3 dez. 2025',iso:'2025-12-03',title:`Processo ${ext(OFFICIAL.process103,proc.cemesc)} é autuado`,effect:'Começa formalmente a instrução administrativa da proposta de CEMESC.',actor:'Anatel',processes:[proc.cemesc],objects:['CEMESC'],kind:'instrução',status:'em curso',detail:`A ficha oficial do item 34 registra 3/12/2025 como início do projeto. A consulta pública do processo permite distinguir peças disponíveis daquelas cuja íntegra permanece restrita.`,sources:[official(OFFICIAL.process103,'Processo público · SEI'),official(OFFICIAL.item34,'Ficha do item 34 · contexto')]},
+      {id:8,phase:1,date:'8–12 dez. 2025',iso:'2025-12-08',title:`${ext(OFFICIAL.consulta29,'Consulta Interna nº 29/2025')} reúne contribuições`,effect:'Áreas internas são consultadas sobre a proposta inicial de estrutura e funcionamento.',actor:'Áreas internas da Anatel',processes:[proc.cemesc],objects:['CEMESC'],kind:'participação',status:'concluído',detail:`A consulta interna é etapa preparatória: recolhe subsídios dentro da Agência, sem instituir o Centro e sem substituir instrumentos de participação externa.`,sources:[official(OFFICIAL.consulta29)]},
+      {id:9,phase:1,date:'12 dez. 2025',iso:'2025-12-12',title:`${ext(OFFICIAL.tap,'TAP')}, Informe nº 177/2025 e minuta organizam a proposta`,effect:'A área técnica estrutura o projeto, seus fundamentos e uma minuta de ato.',actor:'Área técnica',processes:[proc.cemesc],objects:['CEMESC'],kind:'instrução',status:'preparatório',detail:`O Termo de Abertura de Projeto, o Informe e a minuta integram a fase de instrução. Nenhum deles, isoladamente, cria órgão ou confere competência decisória. A consulta pública libera o TAP, mas apenas registra o Informe e a minuta sem franquear suas íntegras.`,sources:[official(OFFICIAL.tap,'TAP · texto integral'),official(OFFICIAL.process103,'Processo público · registro das demais peças')]},
+      {id:10,phase:1,date:'17 dez. 2025',iso:'2025-12-17',title:`${ext(OFFICIAL.p3101,'Portaria nº 3.101/2025')} organiza a Secretaria do GT`,effect:'O Grupo recebe apoio administrativo próprio.',actor:'Presidência do GT',processes:[proc.gt],objects:['GT'],kind:'norma',status:'organização',detail:`A portaria disciplina a secretaria do Grupo e sua sustentação administrativa.`,sources:[official(OFFICIAL.p3101)]},
+      {id:11,phase:1,date:'22 jan. 2026',iso:'2026-01-22',title:'Parecer nº 11/2026/PFE-Anatel examina a minuta',effect:'A Procuradoria realiza controle jurídico preliminar da proposta de CEMESC.',actor:'PFE/Anatel',processes:[proc.cemesc],objects:['CEMESC'],kind:'jurídico',status:'parecer',detail:`Trata-se de manifestação consultiva inserida na instrução. Parecer jurídico orienta a decisão administrativa, mas não substitui o ato da autoridade competente. A peça consta do processo público como documento de acesso restrito; por isso o título não simula um link para sua íntegra.`,sources:[official(OFFICIAL.process103,'Processo público · registro da peça'),official(OFFICIAL.item34,'Ficha do item 34 · contexto')]},
+      {id:12,phase:1,date:'27 jan. 2026',iso:'2026-01-27',title:'MACD nº 51/2026 encaminha proposta ao Conselho',effect:'O presidente do GT submete a proposta de criação do Centro à deliberação.',actor:'Edson Holanda',processes:[proc.cemesc],objects:['CEMESC'],kind:'instrução',status:'proposta',detail:`A MACD é peça de encaminhamento. A submissão ao Conselho evidencia que a proposta não produzia, por si só, a criação do CEMESC. A consulta pública registra a peça como documento de acesso restrito.`,sources:[official(OFFICIAL.process103,'Processo público · registro da peça'),official(OFFICIAL.item34,'Ficha do item 34 · contexto')]},
+      {id:13,phase:1,date:'29 jan. 2026',iso:'2026-01-29',title:'Processo é distribuído a Alexandre Freire',effect:'A relatoria da proposta passa a outro Conselheiro.',actor:'Conselho Diretor',processes:[proc.cemesc],objects:['CEMESC'],kind:'decisão',status:'distribuição',detail:`A distribuição inicia a análise no Conselho Diretor e afasta a leitura de que o presidente do GT decidiria sozinho a criação do Centro.`,sources:[official(OFFICIAL.distribuicao15109399,'Certidão de distribuição · texto integral'),official(OFFICIAL.process103,'Processo público · SEI')]},
+      {id:14,phase:2,date:'12 fev. 2026',iso:'2026-02-12',title:'950ª reunião aprova atualização da Agenda 2025–2026',effect:'O projeto de CEMESC é incorporado ao planejamento regulatório da Agência.',actor:'Conselho Diretor',processes:[proc.agenda],objects:['Agenda','CEMESC'],kind:'decisão',status:'aprovado',detail:`A aprovação colegiada antecede sua formalização pela ${ext(OFFICIAL.ri523,'Resolução Interna nº 523/2026')}. Estar na Agenda não significa que o Centro já exista.`,sources:[official(OFFICIAL.ri523)]},
+      {id:15,phase:2,date:'27 fev. 2026',iso:'2026-02-27',title:`${ext(OFFICIAL.ri523,'Resolução Interna nº 523/2026')} publica a Agenda revisada`,effect:'O item 34 passa a registrar oficialmente o projeto de criação do CEMESC.',actor:'Conselho Diretor',processes:[proc.agenda,proc.cemesc],objects:['Agenda','CEMESC'],kind:'norma',status:'publicado',detail:`A Resolução Interna republica a Agenda 2025–2026 e vincula o projeto ao processo ${proc.cemesc}.`,sources:[official(OFFICIAL.ri523)]},
+      {id:16,phase:2,date:'1 abr. 2026',iso:'2026-04-01',title:`${ext(OFFICIAL.ri537,'Resolução Interna nº 537/2026')} atualiza novamente a Agenda`,effect:'O projeto permanece no planejamento regulatório após nova revisão.',actor:'Conselho Diretor',processes:[proc.agenda,proc.cemesc],objects:['Agenda','CEMESC'],kind:'norma',status:'mantido',detail:`A atualização posterior deve ser lida em conjunto com a ficha do ${ext(OFFICIAL.item34,'item 34')}.`,sources:[official(OFFICIAL.ri537),official(OFFICIAL.item34,'Ficha do item 34 · contexto')]},
+      {id:17,phase:2,date:'26 maio 2026',iso:'2026-05-26',title:`${ext(OFFICIAL.p3165,'Portaria nº 3.165/2026')} atualiza a composição do GT`,effect:'A composição do Grupo é ajustada antes da edição de seu Regimento.',actor:'Presidência do GT',processes:[proc.gt],objects:['GT'],kind:'norma',status:'composição',detail:`O ato trata de membros e representação interna.`,sources:[official(OFFICIAL.p3165)]},
+      {id:18,phase:2,date:'10–11 jun. 2026',iso:'2026-06-10',title:`${ext(OFFICIAL.p3173,'Portaria nº 3.173/2026')} aprova o Regimento do GT`,effect:'O presidente do Grupo edita um Regimento com procedimentos internos e mecanismos posteriormente questionados.',actor:'Edson Holanda · presidente do GT',processes:[proc.reg],objects:['GT','Regimento'],kind:'norma',status:'parcialmente suspenso',detail:`O ato é datado de 10/6, foi assinado e publicado em 11/6 e tramita no processo ${ext(OFFICIAL.process047,proc.reg)}. Embora o art. 3º descreva o GT como consultivo, instrutório, articulador e propositivo, outros dispositivos disciplinam mediação, arbitragem, efeitos e fluxos procedimentais.`,sources:[official(OFFICIAL.p3173)]},
+      {id:20,phase:3,date:'2 jul. 2026',iso:'2026-07-02',title:`${ext(OFFICIAL.analise76,'Análise nº 76/2026/AF')} adia a decisão sobre o CEMESC`,effect:'A deliberação é postergada e a instrução recebe prazo adicional de 120 dias.',actor:'Conselheiro Alexandre Freire',processes:[proc.cemesc],objects:['CEMESC'],kind:'decisão',status:'adiado',detail:`A medida mantém a proposta em instrução e abre espaço para AIR, participação e nova avaliação jurídica.`,sources:[official(OFFICIAL.analise76)]},
+      {id:21,phase:3,date:'17 jul. 2026',iso:'2026-07-17',title:`${ext(OFFICIAL.questionario15982195,'Questionário')} consolida 36 questionamentos em oito eixos`,effect:'A instrução formula perguntas para a Tomada de Subsídios, incluindo questão transversal no item 36.',actor:'Relatoria e área técnica',processes:[proc.cemesc],objects:['CEMESC'],kind:'participação',status:'preparatório',detail:`A estrutura oficial é de oito eixos. O item 36 funciona como fechamento transversal. A contagem corrige versões preliminares que descreviam dez eixos.`,sources:[official(OFFICIAL.questionario15982195),official(OFFICIAL.ts7,'Tomada de Subsídios nº 7/2026 · página de participação')]},
+      {id:22,phase:3,date:'20 jul. 2026',iso:'2026-07-20',title:`${ext(OFFICIAL.oficio204,'Ofício nº 204/2026/AF')} reabre e amplia a instrução`,effect:'Determina AIR, nova Consulta Interna, participação social e outras providências.',actor:'Relator Alexandre Freire',processes:[proc.cemesc],objects:['CEMESC'],kind:'instrução',status:'diligência',detail:`O ofício organiza novas etapas antes de decisão. A própria Anatel noticia que o processo teria instrução adicional, reforçando a inexistência de decisão final naquele momento.`,sources:[official(OFFICIAL.oficio204),official(OFFICIAL.steps,'Notícia institucional · contexto')]},
+      {id:23,phase:3,date:'21 jul. 2026',iso:'2026-07-21',title:`${ext(OFFICIAL.ts7,'Tomada de Subsídios nº 7/2026')} é aberta`,effect:'Interessados externos passam a contribuir com a proposta de CEMESC.',actor:'Anatel · Participa Anatel',processes:[proc.cemesc],objects:['CEMESC'],kind:'participação',status:'aberto',detail:`O período inicial foi de 21/7 a 20/8. O instrumento é Tomada de Subsídios, e não Consulta Pública.`,sources:[official(OFFICIAL.ts7,'Página oficial de participação'),official(OFFICIAL.ts7sei,'Ato de abertura · texto integral')]},
+      {id:24,phase:3,date:'27 jul. 2026',iso:'2026-07-27',title:`${ext(OFFICIAL.oficio208,'Ofício nº 208/2026/AF')} formula consulta jurídica à PFE`,effect:'A Procuradoria é provocada a examinar competência, forma e limites dos mecanismos previstos.',actor:'Relator Alexandre Freire',processes:[proc.cemesc,proc.reg],objects:['CEMESC','Regimento'],kind:'jurídico',status:'consulta',detail:`A consulta conecta a proposta do CEMESC ao problema jurídico do Regimento do GT, sem transformar a PFE em órgão decisório.`,sources:[official(OFFICIAL.oficio208),official(OFFICIAL.steps,'Notícia institucional · contexto')]},
+      {id:25,phase:3,date:'31 jul.–3 ago. 2026',iso:'2026-07-31',title:`${ext(OFFICIAL.parecer308,'Parecer nº 308/2026/PFE-Anatel')} é emitido e aprovado`,effect:'A Procuradoria delimita o que pode ser consultivo ou preparatório e o que exige proposta normativa própria.',actor:'PFE/Anatel · aprovação do Procurador-Geral',processes:[proc.cemesc,proc.reg],objects:['CEMESC','Regimento'],kind:'jurídico',status:'parecer',detail:`O Parecer foi assinado em 31/7 e aprovado pelo Despacho nº 01001/2026 em 3/8. Para mecanismos contenciosos ou heterocompositivos com efeitos externos, recomenda proposta normativa própria, instrução adequada, participação cabível e manifestação jurídica prévia da PFE.`,sources:[official(OFFICIAL.parecer308),official(OFFICIAL.opinion,'Notícia institucional · divulgação')]},
+      {id:26,phase:3,date:'11 ago. 2026',iso:'2026-08-11',title:`${ext(OFFICIAL.decisao22,'Decisão nº 22/2026')} prorroga a Tomada de Subsídios`,effect:'O prazo de contribuições é estendido até 18 de setembro.',actor:'Anatel',processes:[proc.cemesc],objects:['CEMESC'],kind:'participação',status:'prorrogado',detail:`A prorrogação amplia o período participativo e posterga o encerramento dessa etapa.`,sources:[official(OFFICIAL.decisao22),official(OFFICIAL.ts7,'Página oficial de participação')]},
+      {id:27,phase:3,date:'12 ago. 2026',iso:'2026-08-12',title:`${ext(OFFICIAL.parecer308,'Parecer nº 308/2026')} é disponibilizado ao público`,effect:'O fundamento jurídico passa a integrar de forma acessível o debate participativo.',actor:'Anatel',processes:[proc.cemesc,proc.reg],objects:['CEMESC','Regimento'],kind:'comunicação',status:'publicado',detail:`A divulgação permite que os participantes considerem os limites apontados pela PFE ao responder ao questionário.`,sources:[official(OFFICIAL.parecer308),official(OFFICIAL.opinion,'Notícia institucional · divulgação')]},
+      {id:28,phase:3,date:'18 ago. 2026',iso:'2026-08-18',title:`${ext(OFFICIAL.oficio236,'Ofício nº 236/2026')} convida o GEDE/UnB`,effect:'A instrução busca contribuição acadêmica especializada.',actor:'Relatoria',processes:[proc.cemesc],objects:['CEMESC'],kind:'participação',status:'convite',detail:`O convite amplia a base de subsídios técnicos. O acervo registra a peça e a busca de seus anexos.`,sources:[official(OFFICIAL.oficio236)]},
+      {id:29,phase:3,date:'27 ago. 2026',iso:'2026-08-27',title:`${ext(OFFICIAL.p3218,'Portaria nº 3.218/2026')} suspende parte do Regimento`,effect:'Seis dispositivos têm eficácia cautelarmente suspensa até decisão do Conselho Diretor ou revogação expressa.',actor:'Edson Holanda · presidente do GT',processes:[proc.reg,proc.cemesc],objects:['GT','Regimento','CEMESC'],kind:'norma',status:'alert',detail:`Foram suspensos o art. 15, §1º; o art. 16, §2º; e os arts. 18, 27, 45 e 48 do Regimento. A portaria esclarece que não declara invalidade, não revoga nem anula o ato, preserva atos anteriores e determina instrução com contraditório no processo ${ext(OFFICIAL.process047,proc.reg)}.`,sources:[official(OFFICIAL.p3218,'Portaria oficial'),official(OFFICIAL.process047,'Processo oficial')]},
+      {id:30,phase:4,date:'4 set. 2026',iso:'2026-09-04',title:`${ext(OFFICIAL.ri791,'Resolução nº 791/2026')} publica o novo Regimento Interno da Anatel`,effect:'Surge nova moldura geral de competências e procedimentos, com vacatio de 30 dias.',actor:'Conselho Diretor',processes:[],objects:['Agenda','Regimento'],kind:'norma',status:'vacatio',detail:`É um marco normativo paralelo, relevante para o contexto institucional. Na data de corte, a resolução ainda não estava em vigor e não equivale à criação do CEMESC.`,sources:[official(OFFICIAL.ri791)]},
+      {id:31,phase:4,date:'16 set. 2026',iso:'2026-09-16',title:`${ext(OFFICIAL.carta16296749,'Carta SEI nº 16296749')} registra contribuição setorial`,effect:'A última peça pública localizada no processo do CEMESC antes da data de corte defende desenho consultivo e propositivo.',actor:'dig.ia',processes:[proc.cemesc],objects:['CEMESC'],kind:'participação',status:'contribuição',detail:`A contribuição sustenta ausência de competência paralela às unidades existentes e delimitação adequada de objeto e instrumento. Ela é manifestação de participante, não posição final da Anatel.`,sources:[official(OFFICIAL.carta16296749)]},
+      {id:32,phase:4,date:'18 set. 2026',iso:'2026-09-18',title:`${ext(OFFICIAL.ts7,'Tomada de Subsídios nº 7/2026')} encerra o recebimento`,effect:'Termina a fase de coleta pública; ainda restam consolidação, AIR e decisões competentes.',actor:'Anatel · Participa Anatel',processes:[proc.cemesc],objects:['CEMESC'],kind:'participação',status:'encerrado',detail:`O fechamento do prazo não cria o Centro. As contribuições precisam ser examinadas e incorporadas à instrução.`,sources:[official(OFFICIAL.ts7)]},
+      {id:33,phase:4,date:'21 set. 2026',iso:'2026-09-21',title:'Aguarda-se reabertura de prazo para tomada de subsídios',effect:'O acompanhamento do processo passa a depender de eventual reabertura do período de contribuições.',actor:'Estado do procedimento participativo',processes:[proc.cemesc],objects:['CEMESC'],kind:'participação',status:'aguardando reabertura',detail:`Após o encerramento do recebimento em 18 de setembro, aguarda-se a reabertura do prazo para a Tomada de Subsídios nº 7/2026.`,sources:[official(OFFICIAL.ts7,'Tomada de Subsídios nº 7/2026'),official(OFFICIAL.process103,'Processo do CEMESC')]}
+    ];
+
+    const eventsEl = document.querySelector('#events');
+    const sourceLink = s => `<a class="source" href="${s.url}" target="_blank" rel="noopener noreferrer">${s.label} ↗</a>`;
+    const normalize = text => text.replace(/\bn[º°o]\.?\s*/gi,'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/gi,' ').trim().toLowerCase();
+    function eventMarkup(e) {
+      const tags = [...e.objects, e.kind, e.status].map((t,i) => `<span class="tag${i === e.objects.length + 1 ? ' status' : ''}">${t}</span>`).join('');
+      const processes = e.processes.length ? e.processes.join(' · ') : 'marco normativo paralelo';
+      const searchText = normalize([e.date,e.title,e.effect,e.actor,processes,e.objects.join(' '),e.kind,e.detail].join(' ').replace(/<[^>]+>/g,' '));
+      return `<article class="event" id="evt-${e.id}" data-objects="${e.objects.join('|')}" data-kind="${e.kind}" data-search="${searchText.replace(/"/g,'&quot;')}" data-status="${e.status}">
+        <time class="date" datetime="${e.iso}">${e.date}</time><div class="rail"><span class="dot" aria-hidden="true"></span></div>
+        <details class="event-card"><summary><div><h3>${e.title}</h3><p class="effect">${e.effect}</p><div class="tag-row">${tags}</div></div></summary>
+        <div class="detail"><p>${e.detail}</p><div class="facts"><div class="fact"><b>Ator</b><span>${e.actor}</span></div><div class="fact"><b>Processo</b><span>${processes}</span></div></div>
+        <div class="sources">${e.sources.map(sourceLink).join('')}</div></div></details></article>`;
+    }
+    function render() {
+      eventsEl.innerHTML = Object.entries(phases).map(([id,phase]) => `<section class="phase" data-phase="${id}">
+        <div class="phase-label"><div class="phase-number">${phase.number}</div><h2>${phase.title}</h2><p>${phase.description}</p><span class="phase-range">${phase.range}</span></div>
+        <div class="phase-events">${events.filter(e => e.phase === Number(id)).map(eventMarkup).join('')}</div>
+      </section>`).join('');
+      applyFilters();
+    }
+
+    const activeObjects = new Set();
+    const activeKinds = new Set();
+    const search = document.querySelector('#search');
+    const count = document.querySelector('#count');
+    const empty = document.querySelector('#empty');
+    function applyFilters() {
+      const q = normalize(search.value);
+      let visible = 0;
+      document.querySelectorAll('.event').forEach(el => {
+        const objects = el.dataset.objects.split('|');
+        const objectOk = !activeObjects.size || [...activeObjects].some(x => objects.includes(x));
+        const kindOk = !activeKinds.size || activeKinds.has(el.dataset.kind);
+        const textOk = !q || el.dataset.search.includes(q);
+        el.hidden = !(objectOk && kindOk && textOk);
+        if (!el.hidden) visible++;
+      });
+      document.querySelectorAll('.phase').forEach(p => {
+        p.hidden = ![...p.querySelectorAll('.event')].some(event => !event.hidden);
+      });
+      count.textContent = `${visible} de ${events.length} marcos exibidos`;
+      empty.style.display = visible ? 'none' : 'block';
+      localStorage.setItem('timeline-v3-filters', JSON.stringify({objects:[...activeObjects],kinds:[...activeKinds],q}));
+    }
+    document.querySelectorAll('[data-filter]').forEach(btn => btn.addEventListener('click', () => {
+      const key = btn.dataset.filter; activeObjects.has(key) ? activeObjects.delete(key) : activeObjects.add(key);
+      btn.setAttribute('aria-pressed', activeObjects.has(key)); applyFilters();
+    }));
+    document.querySelectorAll('[data-kind]').forEach(btn => btn.addEventListener('click', () => {
+      const key = btn.dataset.kind; activeKinds.has(key) ? activeKinds.delete(key) : activeKinds.add(key);
+      btn.setAttribute('aria-pressed', activeKinds.has(key)); applyFilters();
+    }));
+    search.addEventListener('input', applyFilters);
+    document.querySelector('#clear').addEventListener('click', () => {
+      activeObjects.clear(); activeKinds.clear(); search.value='';
+      document.querySelectorAll('.filter').forEach(b => b.setAttribute('aria-pressed','false')); applyFilters(); search.focus();
+    });
+    document.querySelector('#toggleAll').addEventListener('click', e => {
+      const visible = [...document.querySelectorAll('.event:not([hidden]) details')];
+      const open = visible.every(d => d.open); visible.forEach(d => d.open = !open); e.currentTarget.textContent = open ? 'Expandir tudo' : 'Recolher tudo';
+    });
+    document.querySelector('#print').addEventListener('click', () => window.print());
+    const themeButton = document.querySelector('#themeButton');
+    const setTheme = dark => { document.documentElement.dataset.theme = dark ? 'dark' : 'light'; themeButton.setAttribute('aria-pressed',dark); localStorage.setItem('timeline-v3-theme',dark?'dark':'light'); };
+    themeButton.addEventListener('click', () => setTheme(document.documentElement.dataset.theme !== 'dark'));
+    window.addEventListener('beforeprint', () => document.querySelectorAll('.event:not([hidden]) details').forEach(d => d.open=true));
+    render();
+    try {
+      const saved = JSON.parse(localStorage.getItem('timeline-v3-filters') || '{}');
+      (saved.objects||[]).forEach(x => activeObjects.add(x)); (saved.kinds||[]).forEach(x => activeKinds.add(x)); search.value=saved.q||'';
+      document.querySelectorAll('[data-filter]').forEach(b => b.setAttribute('aria-pressed',activeObjects.has(b.dataset.filter)));
+      document.querySelectorAll('[data-kind]').forEach(b => b.setAttribute('aria-pressed',activeKinds.has(b.dataset.kind)));
+      applyFilters(); setTheme(localStorage.getItem('timeline-v3-theme') === 'dark' || (!localStorage.getItem('timeline-v3-theme') && matchMedia('(prefers-color-scheme:dark)').matches));
+    } catch (_) { setTheme(false); }
+  </script>
+</body>
+</html>

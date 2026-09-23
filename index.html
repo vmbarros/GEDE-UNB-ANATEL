@@ -11,12 +11,14 @@
       color-scheme: light;
       --ink:#0b2231; --ink-2:#17394a; --paper:#f3f7f6; --card:#ffffff; --muted:#587079;
       --line:#c9d8d7; --teal:#087f77; --teal-2:#d6f2ec; --amber:#a95f00; --amber-2:#fff0d4;
+      --highlight:#e6a900;
       --red:#9b3434; --red-2:#ffe5e2; --blue:#285f91; --blue-2:#e3eff9; --shadow:0 14px 42px rgba(7,31,45,.10);
       --serif:Georgia, 'Times New Roman', serif; --sans:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     }
     [data-theme="dark"] {
       color-scheme:dark; --ink:#e8f2f1; --ink-2:#c6dcda; --paper:#071722; --card:#0d2431; --muted:#a7bec0;
       --line:#284653; --teal:#62dec7; --teal-2:#113e3c; --amber:#ffc267; --amber-2:#4a3214;
+      --highlight:#ffd45c;
       --red:#ff9792; --red-2:#472526; --blue:#8cc7f5; --blue-2:#173951; --shadow:0 16px 46px rgba(0,0,0,.28);
     }
     * { box-sizing:border-box; }
@@ -66,6 +68,8 @@
     .filter, .action { min-height:40px; padding:7px 11px; border:1px solid var(--line); border-radius:999px; background:var(--card); color:var(--ink); cursor:pointer; font-size:.84rem; font-weight:700; }
     .filter[aria-pressed="true"] { border-color:var(--teal); color:var(--paper); background:var(--teal); }
     .control-meta { display:flex; justify-content:space-between; gap:12px; margin-top:10px; color:var(--muted); font-size:.78rem; }
+    .highlight-key { display:inline-flex; align-items:center; gap:9px; }
+    .highlight-key::before { content:''; width:11px; height:11px; flex:none; border-radius:50%; background:var(--highlight); box-shadow:0 0 0 2px var(--paper), 0 0 0 3px var(--highlight); }
     .timeline { position:relative; margin-top:14px; }
     .phase { display:grid; grid-template-columns:240px minmax(0,1fr); gap:34px; padding:42px 0 24px; border-top:1px solid var(--line); }
     .phase:first-child { border-top:0; padding-top:20px; }
@@ -84,6 +88,12 @@
     .dot { position:absolute; left:6px; top:27px; width:16px; height:16px; border:4px solid var(--paper); border-radius:50%; background:var(--teal); box-shadow:0 0 0 1px var(--teal); }
     .event[data-status="alert"] .dot { background:var(--red); box-shadow:0 0 0 1px var(--red); }
     .event[data-status="pending"] .dot { background:var(--amber); box-shadow:0 0 0 1px var(--amber); }
+    .event[data-highlight="true"] .dot { z-index:1; background:var(--highlight); box-shadow:0 0 0 1px var(--highlight); animation:highlight-pulse 2.4s ease-out infinite; }
+    @keyframes highlight-pulse {
+      0% { box-shadow:0 0 0 1px var(--highlight), 0 0 0 1px color-mix(in srgb, var(--highlight) 65%, transparent); }
+      70%, 100% { box-shadow:0 0 0 1px var(--highlight), 0 0 0 11px transparent; }
+    }
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
     .event-card { margin:8px 0; border:1px solid var(--line); border-radius:16px; background:var(--card); overflow:hidden; box-shadow:0 7px 22px rgba(7,31,45,.06); }
     .event-card summary { list-style:none; display:grid; grid-template-columns:minmax(0,1fr) auto; gap:12px; padding:18px; cursor:pointer; }
     .event-card summary::-webkit-details-marker { display:none; }
@@ -127,7 +137,7 @@
       .facts { grid-template-columns:1fr; } .controls { border-radius:14px; }
       .control-meta { flex-direction:column; gap:2px; }
     }
-    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *, *::before, *::after { transition:none !important; } }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *, *::before, *::after { transition:none !important; animation:none !important; } }
     @media print {
       :root { --paper:#fff; --card:#fff; --ink:#000; --ink-2:#111; --muted:#444; --line:#bbb; }
       body { background:#fff; font-size:11pt; } .shell { width:100%; } header { padding-top:0; }
@@ -137,6 +147,7 @@
       a { color:#000; text-decoration:none; } a[href^="http"]::after { content:' [' attr(href) ']'; font-size:7.5pt; overflow-wrap:anywhere; }
       .phase { grid-template-columns:175px minmax(0,1fr); gap:20px; padding:22px 0 12px; break-inside:auto; }
       .phase-label { position:static; break-inside:avoid; } .phase-number, .phase-range { color:#000; }
+      .event[data-highlight="true"] .dot { animation:none; }
       .phase-range { border:1px solid #aaa; background:#fff; } .method { break-inside:avoid; }
     }
   </style>
@@ -209,7 +220,7 @@
           <button class="action" id="toggleAll" type="button">Expandir tudo</button>
           <button class="action" id="print" type="button">Imprimir</button>
         </div>
-        <div class="control-meta"><span id="count" aria-live="polite"></span><span>Filtros são combinados por tema + natureza.</span></div>
+        <div class="control-meta"><span id="count" aria-live="polite"></span><span class="highlight-key">Amarelo pulsante: sete documentos em destaque.</span></div>
       </div>
       <div id="events" class="timeline"></div>
       <p id="empty" class="empty">Nenhum marco corresponde aos filtros atuais.</p>
@@ -317,15 +328,16 @@
     ];
 
     const eventsEl = document.querySelector('#events');
+    const highlightedEventIds = new Set([1, 3, 18, 22, 25, 29, 31]);
     const sourceLink = s => `<a class="source" href="${s.url}" target="_blank" rel="noopener noreferrer">${s.label} ↗</a>`;
     const normalize = text => text.replace(/\bn[º°o]\.?\s*/gi,'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/gi,' ').trim().toLowerCase();
     function eventMarkup(e) {
       const tags = [...e.objects, e.kind, e.status].map((t,i) => `<span class="tag${i === e.objects.length + 1 ? ' status' : ''}">${t}</span>`).join('');
       const processes = e.processes.length ? e.processes.join(' · ') : 'marco normativo paralelo';
       const searchText = normalize([e.date,e.title,e.effect,e.actor,processes,e.objects.join(' '),e.kind,e.detail].join(' ').replace(/<[^>]+>/g,' '));
-      return `<article class="event" id="evt-${e.id}" data-objects="${e.objects.join('|')}" data-kind="${e.kind}" data-search="${searchText.replace(/"/g,'&quot;')}" data-status="${e.status}">
+      return `<article class="event" id="evt-${e.id}" data-objects="${e.objects.join('|')}" data-kind="${e.kind}" data-search="${searchText.replace(/"/g,'&quot;')}" data-status="${e.status}"${highlightedEventIds.has(e.id) ? ' data-highlight="true"' : ''}>
         <time class="date" datetime="${e.iso}">${e.date}</time><div class="rail"><span class="dot" aria-hidden="true"></span></div>
-        <details class="event-card"><summary><div><h3>${e.title}</h3><p class="effect">${e.effect}</p><div class="tag-row">${tags}</div></div></summary>
+        <details class="event-card"><summary><div><h3>${highlightedEventIds.has(e.id) ? '<span class="sr-only">Documento em destaque: </span>' : ''}${e.title}</h3><p class="effect">${e.effect}</p><div class="tag-row">${tags}</div></div></summary>
         <div class="detail"><p>${e.detail}</p><div class="facts"><div class="fact"><b>Ator</b><span>${e.actor}</span></div><div class="fact"><b>Processo</b><span>${processes}</span></div></div>
         <div class="sources">${e.sources.map(sourceLink).join('')}</div></div></details></article>`;
     }
